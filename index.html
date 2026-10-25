@@ -315,5 +315,20 @@ function nextQuiz() {
   <p>Learn Python step by step and build your coding skills!</p>
 </section>
   
+<section id="live-editor" style="background:#0b1020;color:white;padding:30px 15px;text-align:center;font-family:Arial,sans-serif;">
+  <h2 style="color:#c4b5fd;">💻 Live Code Playground</h2>
+  <p>Write HTML below and see your result instantly!</p>
+
+  <textarea id="html-code" style="width:95%;max-width:600px;height:180px;background:#111831;color:#86efac;padding:12px;border:1px solid #8b5cf6;border-radius:10px;font-size:15px;"><h1>Hello, CodeNest!</h1>
+<p>I am learning web development.</p>
+<button>Click Me</button></textarea>
+
+  <br><br>
+  <button onclick="document.getElementById('html-output').srcdoc=document.getElementById('html-code').value" style="background:#8b5cf6;color:white;padding:12px 24px;border:0;border-radius:8px;font-size:16px;">Run HTML ▶</button>
+
+  <h3 style="color:#c4b5fd;">Live Output</h3>
+  <iframe id="html-output" title="HTML live output" sandbox="" style="width:95%;max-width:600px;height:220px;background:white;border:0;border-radius:10px;"></iframe>
+</section>
+  
 </body>
 </html>
