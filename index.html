@@ -1,10 +1,189 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>CodeNest</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeNest | Coding Academy</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0b1020;
+  color: white;
+}
+
+header {
+  padding: 22px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #121a31;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #a78bfa;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 14px;
+}
+
+.hero {
+  text-align: center;
+  padding: 75px 20px;
+}
+
+.hero h1 {
+  font-size: 38px;
+  margin-bottom: 18px;
+}
+
+.hero span {
+  color: #a78bfa;
+}
+
+.hero p {
+  color: #cbd5e1;
+  line-height: 1.8;
+}
+
+.btn {
+  background: #8b5cf6;
+  color: white;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 24px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.courses {
+  padding: 35px 7% 70px;
+  text-align: center;
+}
+
+.courses h2 {
+  font-size: 28px;
+}
+
+.course-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.card {
+  background: #151e38;
+  border: 1px solid #303b5d;
+  border-radius: 14px;
+  padding: 28px 20px;
+  width: 220px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #a78bfa;
+}
+
+.card .emoji {
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  color: #c4b5fd;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #121a31;
+  color: #cbd5e1;
+}
+</style>
 </head>
-<body style="background:#0b1020;color:white;text-align:center;padding:50px">
-  <h1>Welcome to CodeNest 🚀</h1>
-  <p>Learn HTML, CSS, JavaScript, Python and Java.</p>
+
+<body>
+
+<header>
+  <div class="logo">CodeNest 🚀</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#courses">Courses</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <h1>Learn to Code.<br>Build Your <span>Future.</span></h1>
+  <p>Explore programming, build projects, and grow your skills.</p>
+  <p>Your developer journey starts here.</p>
+  <button class="btn" onclick="startLearning()">
+    Explore Courses →
+  </button>
+</section>
+
+<section class="courses" id="courses">
+  <h2>Explore Our Courses</h2>
+
+  <div class="course-list">
+    <div class="card">
+      <div class="emoji">🌐</div>
+      <h3>HTML & CSS</h3>
+      <p>Create beautiful and responsive websites.</p>
+    </div>
+
+    <div class="card">
+      <div class="emoji">⚡</div>
+      <h3>JavaScript</h3>
+      <p>Make websites interactive and dynamic.</p>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🐍</div>
+      <h3>Python</h3>
+      <p>Learn programming with simple syntax.</p>
+    </div>
+
+    <div class="card">
+      <div class="emoji">☕</div>
+      <h3>Java</h3>
+      <p>Explore object-oriented programming.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 CodeNest | Learn. Build. Grow.</p>
+</footer>
+
+<script>
+function startLearning() {
+  document.getElementById("courses").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+</script>
+
 </body>
 </html>
