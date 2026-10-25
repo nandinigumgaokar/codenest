@@ -184,6 +184,122 @@ function startLearning() {
   });
 }
 </script>
+  
 
+<section id="quiz" style="background:#111831;color:white;padding:35px 20px;text-align:center;font-family:Arial,sans-serif;">
+  <h2 style="color:#c4b5fd;margin-bottom:20px;">🧠 Coding Quiz</h2>
+
+  <p id="quiz-question" style="margin:20px 0;">What does HTML stand for?</p>
+
+  <div id="quiz-options" style="max-width:350px;margin:auto;display:flex;flex-direction:column;gap:12px;">
+    <button onclick="answerQuiz(0)" style="padding:13px;background:#8b5cf6;color:white;border:0;border-radius:8px;">High Text Machine Language</button>
+    <button onclick="answerQuiz(1)" style="padding:13px;background:#8b5cf6;color:white;border:0;border-radius:8px;">HyperText Markup Language</button>
+    <button onclick="answerQuiz(2)" style="padding:13px;background:#8b5cf6;color:white;border:0;border-radius:8px;">Home Tool Markup Language</button>
+  </div>
+
+  <p id="quiz-result" style="margin:20px 0;"></p>
+
+  <button onclick="nextQuiz()" style="padding:12px 22px;background:#a78bfa;color:white;border:0;border-radius:8px;">Next Question →</button>
+</section>
+
+<script>
+const questions = [
+  {
+    question: "What does HTML stand for?",
+    options: [
+      "High Text Machine Language",
+      "HyperText Markup Language",
+      "Home Tool Markup Language"
+    ],
+    answer: 1
+  },
+  {
+    question: "Which language makes websites interactive?",
+    options: ["CSS", "JavaScript", "HTML"],
+    answer: 1
+  },
+  {
+    question: "Which language is popular for AI and data science?",
+    options: ["Python", "HTML", "CSS"],
+    answer: 0
+  }
+];
+
+let quizIndex = 0;
+let quizScore = 0;
+let quizAnswered = false;
+
+function renderQuiz() {
+  const q = questions[quizIndex];
+
+  document.getElementById("quiz-question").textContent = q.question;
+  document.getElementById("quiz-result").textContent = "";
+
+  const box = document.getElementById("quiz-options");
+  box.innerHTML = "";
+
+  q.options.forEach((option, index) => {
+    const btn = document.createElement("button");
+    btn.textContent = option;
+    btn.style.cssText =
+      "padding:13px;background:#8b5cf6;color:white;border:0;border-radius:8px;cursor:pointer;";
+    btn.onclick = () => answerQuiz(index);
+    box.appendChild(btn);
+  });
+
+  quizAnswered = false;
+}
+
+function answerQuiz(selected) {
+  if (quizAnswered) return;
+
+  quizAnswered = true;
+
+  if (selected === questions[quizIndex].answer) {
+    quizScore++;
+    document.getElementById("quiz-result").textContent = "Correct! 🎉";
+  } else {
+    document.getElementById("quiz-result").textContent = "Not correct. Try the next question!";
+  }
+
+  document.querySelectorAll("#quiz-options button").forEach(btn => {
+    btn.disabled = true;
+    btn.style.opacity = "0.7";
+  });
+}
+
+function nextQuiz() {
+  if (!quizAnswered) {
+    document.getElementById("quiz-result").textContent =
+      "Please select an answer first!";
+    return;
+  }
+
+  quizIndex++;
+
+  if (quizIndex >= questions.length) {
+    document.getElementById("quiz-question").textContent =
+      "Quiz Completed! Your score: " + quizScore + "/" + questions.length;
+
+    document.getElementById("quiz-options").innerHTML = "";
+    document.getElementById("quiz-result").textContent =
+      "Great job! Keep learning with CodeNest 🚀";
+
+    document.querySelector("#quiz button:last-child").textContent =
+      "Play Again ↻";
+
+    document.querySelector("#quiz button:last-child").onclick = () => {
+      quizIndex = 0;
+      quizScore = 0;
+      renderQuiz();
+    };
+
+    return;
+  }
+
+  renderQuiz();
+}
+</script>
+  
 </body>
 </html>
