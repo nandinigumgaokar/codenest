@@ -330,5 +330,26 @@ function nextQuiz() {
   <iframe id="html-output" title="HTML live output" sandbox="" style="width:95%;max-width:600px;height:220px;background:white;border:0;border-radius:10px;"></iframe>
 </section>
   
+<button id="theme-toggle" onclick="document.body.classList.toggle('light-mode'); this.textContent=document.body.classList.contains('light-mode')?'🌙 Dark Mode':'☀️ Light Mode';" style="position:fixed;top:12px;right:12px;z-index:9999;background:#8b5cf6;color:white;padding:10px 14px;border:0;border-radius:20px;font-weight:bold;">
+☀️ Light Mode
+</button>
+
+<style>
+body.light-mode {
+  background: #f4f4ff !important;
+  color: #1e1b4b !important;
+}
+body.light-mode section,
+body.light-mode div {
+  color: #1e1b4b;
+}
+body.light-mode p,
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3 {
+  color: #1e1b4b;
+}
+</style>
+  
 </body>
 </html>
